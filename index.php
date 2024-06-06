@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("php/config.php");
+include ("php/config.php");
 
 if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         header("Location: home.php");
         exit; // Ensure that the script stops execution after redirection
     } else {
-        echo'<script>alert("Wrong Username or Password")</script>';
+        echo '<script>alert("Wrong Username or Password")</script>';
     }
 }
 ?>
@@ -31,6 +31,13 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
     <title>Login</title>
+    <style>
+        @media only screen and (max-width: 600px) {
+            body .container {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -41,7 +48,7 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="right-box">
             <div class="box form-box">
-                <?php if (isset($error_message)) : ?>
+                <?php if (isset($error_message)): ?>
                     <div class='message'>
                         <p><?php echo $error_message; ?></p>
                     </div>
