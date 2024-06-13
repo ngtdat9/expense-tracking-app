@@ -2,7 +2,6 @@
 session_start();
 include("php/config.php");
 
-// Ensure the session ID is set
 if (!isset($_SESSION['id'])) {
     die("No session ID found.");
 }
@@ -38,17 +37,15 @@ $id = $_SESSION['id'];
                 $username = $_POST['username'];
                 $email = $_POST['email'];
 
-                // Check if fields are empty
+
                 if (empty($username) || empty($email)) {
                     die("Username or Email cannot be empty.");
                 }
 
-                // Use prepared statements to prevent SQL injection
                 $stmt = mysqli_prepare($con, "UPDATE users SET Username=?, Email=? WHERE Id=?");
                 mysqli_stmt_bind_param($stmt, "ssi", $username, $email, $id);
 
                 if (mysqli_stmt_execute($stmt)) {
-                    // Update the session username
                     $_SESSION['username'] = $username;
                     
                     echo "<div class='message'>
@@ -61,7 +58,7 @@ $id = $_SESSION['id'];
 
                 mysqli_stmt_close($stmt);
             } else {
-                // Fetch the current user data
+
                 $stmt = mysqli_prepare($con, "SELECT Username, Email FROM users WHERE Id=?");
                 mysqli_stmt_bind_param($stmt, "i", $id);
                 mysqli_stmt_execute($stmt);

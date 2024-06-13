@@ -12,6 +12,9 @@
             body .container {
                 flex-direction: column;
             }
+            .box{
+                width: 300px;
+            }
         }
     </style>
 </head>

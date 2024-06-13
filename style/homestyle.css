@@ -11,7 +11,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-/* Your existing CSS rules */
 
 nav {
   background: #fff;
@@ -184,7 +183,7 @@ body {
   color: #587ef4;
 }
 
-/* For screens smaller than 768px (e.g., smartphones) */
+
 @media only screen and (max-width: 768px) {
   nav {
     flex-direction: column;

@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['username'] = $row['Username'];
         $_SESSION['id'] = $row['Id'];
         header("Location: home.php");
-        exit; // Ensure that the script stops execution after redirection
+        exit; 
     } else {
         echo '<script>alert("Wrong Username or Password")</script>';
     }
